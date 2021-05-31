@@ -59,7 +59,7 @@ classes = { 0:'Speed limit (20km/h)',
             41:'End of no passing', 
             42:'End no passing veh > 3.5 tons' }
 
-model = tf.keras.models.load_model("./static/model/GTSRB_model.h5")
+# model = tf.keras.models.load_model("./static/model/GTSRB_model.h5")
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -77,7 +77,7 @@ app_data = {
 }
 @app.route('/')
 def home():
-    return render_template('home.html', app_data=app_data)
+    return render_template('index.html', app_data=app_data)
 
 @app.route('/predict/', methods = ['GET', 'POST'])
 def upload_image():
