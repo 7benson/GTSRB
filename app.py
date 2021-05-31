@@ -59,7 +59,7 @@ classes = { 0:'Speed limit (20km/h)',
             41:'End of no passing', 
             42:'End no passing veh > 3.5 tons' }
 
-# model = tf.keras.models.load_model("./static/model/GTSRB_model.h5")
+model = tf.keras.models.load_model("./static/model/GTSRB.h5")
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -81,28 +81,28 @@ def home():
 
 @app.route('/predict/', methods = ['GET', 'POST'])
 def upload_image():
-    if len(request.files) ==0:
-        return render_template('home.html', app_data=app_data)
-    print(request.files)
-    file = request.files['file']
-    print()
-    if file.filename == '':
-        print('No image selected for uploading')
-        return render_template('home.html', app_data=app_data)
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        print('Image successfully uploaded and displayed below')
+    # if len(request.files) ==0:
+    #     return render_template('home.html', app_data=app_data)
+    # print(request.files)
+    # file = request.files['file']
+    # print()
+    # if file.filename == '':
+    #     print('No image selected for uploading')
+    #     return render_template('home.html', app_data=app_data)
+    # if file and allowed_file(file.filename):
+    #     filename = secure_filename(file.filename)
+    #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    #     print('Image successfully uploaded and displayed below')
 
-        pred=test_input(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        print("Predicton ===== > ",pred)
+    #     pred=test_input(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    #     print("Predicton ===== > ",pred)
 
-        image_path="."+os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        print(image_path)
-        return render_template('predict.html', app_data=app_data,image_path=image_path,pred=pred)
-    else:
-        print('Allowed image types are -> png, jpg, jpeg, gif')
-        return render_template('home.html', app_data=app_data)
+    #     image_path="."+os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    #     print(image_path)
+    #     return render_template('predict.html', app_data=app_data,image_path=image_path,pred=pred)
+    # else:
+    #     print('Allowed image types are -> png, jpg, jpeg, gif')
+    return render_template('predict.html', app_data=app_data)
 
 def test_input(path):
     image = cv2.imread(path)
