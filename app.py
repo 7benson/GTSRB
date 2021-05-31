@@ -99,7 +99,8 @@ def upload_image():
 
         image_path="."+os.path.join(app.config['UPLOAD_FOLDER'], filename)
         print(image_path)
-        return render_template('predict.html',image_path=image_path,pred=pred)
+        return render_template('predict.html',image_path=image_path,pred=pred,backgroundImage=request.url_root+"static/images/slide-01.jpg"
+                                ,inputImageAddr=request.url_root+image_path[3:])
     else:
         return render_template('index.html', app_data=app_data)
 
