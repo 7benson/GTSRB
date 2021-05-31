@@ -1,6 +1,5 @@
 {%extends "layout.html" %}
 {%block body%}
-        <!-- ***** Preloader Start ***** -->
         <div id="preloader">
             <div class="jumper">
                 <div></div>
@@ -8,32 +7,23 @@
                 <div></div>
             </div>
         </div>  
-        <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
                             GTSRB
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about" class="active">About</a></li>
-                            <li class="scroll-to-section"><a href="#subscribe">Predict</a></li>
                             <li class="scroll-to-section"><a target="_blank" href="https://benchmark.ini.rub.de/gtsrb_about.html">Dataset Link</a></li>
                             <li class="scroll-to-section"><a target="_blank" href="https://github.com/7benson/GTSRB">GITHUB LINK</a></li>
-                            <!-- <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li>  -->
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
@@ -48,7 +38,7 @@
                 <div class="text-content">
                   <h3>Thank you for reviewing the CNN Model </h3>
                   <h5>The Prediction for the input image is " {{pred}} "</h5>
-                  <img style="height: 30px;object-fit: scale-down;" src={{inputImageAddr}} />
+                  <img style="height: 120px;object-fit: scale-down;" src={{inputImageAddr}} />
                   <a href="/" class="main-stroked-button">GO BACK</a>
                   <a target="_blank" href="https://www.linkedin.com/in/jayanth-kumar-14a4811b5/" class="main-filled-button">CONTACT ME</a>
                 </div>
