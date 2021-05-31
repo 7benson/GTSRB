@@ -64,7 +64,7 @@ model = tf.keras.models.load_model("./static/model/GTSRB.h5")
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
-app = Flask(__name__)
+app = Flask(__name__,template_folder="./templates")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app_data = {
@@ -78,7 +78,7 @@ app_data = {
 @app.route('/')
 def home():
     return render_template('index.html', app_data=app_data)
-
+    
 @app.route('/predict/', methods = ['GET', 'POST'])
 def upload_image():
     # if len(request.files) ==0:
@@ -102,7 +102,7 @@ def upload_image():
     #     return render_template('predict.html', app_data=app_data,image_path=image_path,pred=pred)
     # else:
     #     print('Allowed image types are -> png, jpg, jpeg, gif')
-    return render_template('predict.html', app_data=app_data)
+    return render_template('predict.html')
 
 def test_input(path):
     image = cv2.imread(path)
