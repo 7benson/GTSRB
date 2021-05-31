@@ -6,7 +6,7 @@ import tensorflow as tf
 import cv2
 from PIL import Image
 import numpy as np
-# import keras
+import keras
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 IMG_HEIGHT = 32
@@ -64,7 +64,7 @@ model = tf.keras.models.load_model("./static/model/GTSRB.h5")
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
-app = Flask(__name__,template_folder="./templates")
+app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app_data = {
@@ -78,31 +78,30 @@ app_data = {
 @app.route('/')
 def home():
     return render_template('index.html', app_data=app_data)
-    
+
 @app.route('/predict/', methods = ['GET', 'POST'])
 def upload_image():
-    # if len(request.files) ==0:
-    #     return render_template('home.html', app_data=app_data)
-    # print(request.files)
-    # file = request.files['file']
-    # print()
-    # if file.filename == '':
-    #     print('No image selected for uploading')
-    #     return render_template('home.html', app_data=app_data)
-    # if file and allowed_file(file.filename):
-    #     filename = secure_filename(file.filename)
-    #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    #     print('Image successfully uploaded and displayed below')
+    if len(request.files) ==0:
+        return render_template('home.html', app_data=app_data)
+    print(request.files)
+    file = request.files['file']
+    print()
+    if file.filename == '':
+        print('No image selected for uploading')
+        return render_template('home.html', app_data=app_data)
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        print('Image successfully uploaded and displayed below')
 
-    #     pred=test_input(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    #     print("Predicton ===== > ",pred)
+        pred=test_input(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        print("Predicton ===== > ",pred)
 
-    #     image_path="."+os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    #     print(image_path)
-    #     return render_template('predict.html', app_data=app_data,image_path=image_path,pred=pred)
-    # else:
-    #     print('Allowed image types are -> png, jpg, jpeg, gif')
-    return render_template('predict.html')
+        image_path="."+os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        print(image_path)
+        return render_template('predict.html',image_path=image_path,pred=pred)
+    else:
+        return render_template('index.html', app_data=app_data)
 
 def test_input(path):
     image = cv2.imread(path)
@@ -113,7 +112,7 @@ def test_input(path):
     pred=np.argmax(model.predict(X_test.reshape(1,32,32,3)))
     return classes[int(pred)]
 
-extra_dirs = ['./static/styles','./templates']
+extra_dirs = ['./static/styles','./static/js','./templates']
 extra_files = extra_dirs[:]
 for extra_dir in extra_dirs:
     for dirname, dirs, files in walk(extra_dir):

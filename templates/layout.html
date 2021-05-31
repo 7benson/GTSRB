@@ -32,29 +32,29 @@ https://templatemo.com/tm-543-breezed
     </head>
     
     <body>
-    
+        
+        
         {%block body%}{%endblock%}
     
 
     <!-- jQuery -->
-    <script src="./static/js/jquery-2.1.0.min.js"></script>
+    <script src="{{url_for('static',filename='js/jquery-2.1.0.min.js')}}"></script>
 
     <!-- Bootstrap -->
-    <script src="./static/js/popper.js"></script>
-    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="{{url_for('static',filename='js/popper.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
 
     <!-- Plugins -->
-    <script src="./static/js/owl-carousel.js"></script>
-    <script src="./static/js/scrollreveal.min.js"></script>
-    <script src="./static/js/waypoints.min.js"></script>
-    <script src="./static/js/jquery.counterup.min.js"></script>
-    <script src="./static/js/imgfix.min.js"></script> 
-    <script src="./static/js/slick.js"></script> 
-    <script src="./static/js/lightbox.js"></script> 
-    <script src="./static/js/isotope.js"></script> 
+    <script src="{{url_for('static',filename='js/owl-carousel.js')}}"></script>
+    <script src="{{url_for('static',filename='js/scrollreveal.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.counterup.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/imgfix.min.js')}}"></script> 
+    <script src="{{url_for('static',filename='js/slick.js')}}"></script> 
+    <script src="{{url_for('static',filename='js/lightbox.js')}}"></script> 
+    <script src="{{url_for('static',filename='js/isotope.js')}}"></script> 
     
     <!-- Global Init -->
-    <script src="./static/js/custom.js"></script>
 
     <script>
 
@@ -73,17 +73,17 @@ https://templatemo.com/tm-543-breezed
         });
         
     </script>
-<script>
-    let inp=document.querySelector("#inputGroupFile04")
-    window.addEventListener("change",handleFiles,false)
-  
-    function handleFiles() {
-      const fileList = inp.files[0]; /* now you can work with the file list */
-      const fileName=fileList.name
-      document.getElementById('labelForInput').innerHTML= fileName;
-      console.log(fileList)
-    }
-  
-  </script>
+    <script>
+        let inp=document.querySelector("#inputGroupFile04")
+        window.addEventListener("change",handleFiles,false)
+        
+        function handleFiles() {
+          const fileList = inp.files[0]; /* now you can work with the file list */
+          const fileName=fileList.name
+          document.getElementById('labelForInput').innerHTML= fileName;
+        }
+    </script>
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
   </body>
 </html>

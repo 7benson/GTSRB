@@ -1,16 +1,15 @@
 {%extends "layout.html" %}
 {%block body%}
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
-    
+        <!-- ***** Preloader Start ***** -->
+        <div id="preloader">
+            <div class="jumper">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>  
+        <!-- ***** Preloader End ***** -->
+
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -18,7 +17,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="/" class="logo">
                             GTSRB
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -45,27 +44,24 @@
         <div class="Modern-Slider">
           <div class="item">
             <div class="img-fill">
-                <img src="./static/images/slide-01.jpg" alt="">
+                <img src="{{backgroundImage}}" alt="">
                 <div class="text-content">
-                  <h3>Welcome To make prediction on The German Traffic Sign Recognition Benchmark (GTSRB)  </h3>
-                  <h5>The German Traffic Sign Benchmark is a multi-class, single-image classification challenge </h5>
-                  <a href="#" class="main-stroked-button">Learn More</a>
-                  <a href="#" class="main-filled-button">Get It Now</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="img-fill">
-                <img src="./static/images/slide-02.jpg" alt="">
-                <div class="text-content">
-                  <h3>Recognition of traffic signs is a challenging real-world problem of high industrial relevance.</h3>
-                  <h5> Although commercial systems have reached the market and several studies on this topic have been published, systematic unbiased comparisons of different approaches are missing and comprehensive benchmark datasets are not freely available.</h5>
-                  <a href="#" class="main-stroked-button">Read More</a>
-                  <a href="#" class="main-filled-button">Take Action</a>
+                  <h3>Thank you for reviewing the CNN Model </h3>
+                  <h5>The Prediction for the input image is {{pred}}</h5>
+                  <a href="/" class="main-stroked-button">GO BACK</a>
+                  <a target="_blank" href="https://www.linkedin.com/in/jayanth-kumar-14a4811b5/" class="main-filled-button">CONTACT ME</a>
+                
                 </div>
             </div>
           </div>
         </div>
     </div>
-{%endblock %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>
+    </footer> 
+
+ {%endblock%}
