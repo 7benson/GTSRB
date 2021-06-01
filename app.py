@@ -7,6 +7,15 @@ import cv2
 from PIL import Image
 import numpy as np
 import keras
+
+from google_drive_downloader import GoogleDriveDownloader as gdd
+import os.path
+if(not os.path.isfile(fname)){
+    gdd.download_file_from_google_drive(file_id='1W7IGkKoiscnk_m9jpurBtsm_Cijqf28o',
+                                    dest_path='./static/model/GTSRB.h5',
+                                    unzip=True)
+}
+
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 IMG_HEIGHT = 32
