@@ -1,4 +1,3 @@
-opencv-python --use-feature=2020-resolver
 flask --use-feature=2020-resolver
 werkzeug --use-feature=2020-resolver
 tensorflow-cpu --use-feature=2020-resolver
