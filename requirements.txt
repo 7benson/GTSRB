@@ -1,7 +1,6 @@
 opencv-python --use-feature=2020-resolver
 flask --use-feature=2020-resolver
 werkzeug --use-feature=2020-resolver
-keras --use-feature=2020-resolver
 tensorflow --use-feature=2020-resolver
 numpy --use-feature=2020-resolver
 pillow --use-feature=2020-resolver

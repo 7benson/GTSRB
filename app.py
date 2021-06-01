@@ -6,7 +6,6 @@ import tensorflow as tf
 import cv2
 from PIL import Image
 import numpy as np
-import keras
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
 import os.path
