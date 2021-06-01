@@ -4,6 +4,6 @@ werkzeug
 keras
 tensorflow
 numpy
-PIL
+PIL==8.0.1
 googledrivedownloader
 gunicorn
