@@ -10,11 +10,10 @@ import keras
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
 import os.path
-if(not os.path.isfile(fname)){
+if(not os.path.isfile("GTSRB.h5")):
     gdd.download_file_from_google_drive(file_id='1W7IGkKoiscnk_m9jpurBtsm_Cijqf28o',
                                     dest_path='./static/model/GTSRB.h5',
                                     unzip=True)
-}
 
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
