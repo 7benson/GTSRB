@@ -1,8 +1,9 @@
-cv2==4.4.0
+opencv-python
 flask==1.1.2
 werkzeug==1.0.1
 keras==2.4.3
 tensorflow==2.5.0-dev20201228
 numpy==1.20.2
 PIL==8.0.1
+googledrivedownloader
 gunicorn
