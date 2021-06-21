@@ -6,8 +6,8 @@ import tensorflow as tf
 import cv2
 from PIL import Image
 import numpy as np
-
 from google_drive_downloader import GoogleDriveDownloader as gdd
+
 import os.path
 if(not os.path.isfile("GTSRB.h5")):
     gdd.download_file_from_google_drive(file_id='1W7IGkKoiscnk_m9jpurBtsm_Cijqf28o',
