@@ -6,4 +6,3 @@ pillow --use-feature=2020-resolver
 googledrivedownloader --use-feature=2020-resolver
 gunicorn --use-feature=2020-resolver
 opencv-python-headless --use-feature=2020-resolver
-
